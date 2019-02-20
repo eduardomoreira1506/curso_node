@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+	<html lang="pt-br">
+		<head>
+			<meta charset="utf-8"/>
+			<title>Formul?io de cadastro de Not?ia</title>
+		</head>
+	<body>
+
+		<h1>Adicionar not?ia</h1>
+		<br>
+
+		<!-- imprimindo os erros -->
+		<% if(validacao) { %>
+			<ul>
+				<% for(var i = 0 ; i < validacao.length; i++){ %>
+					<li>
+						<%= validacao[i].msg %>						
+					</li>
+				<% } %>
+			</ul>
+		<% } %>
+		<form action="/noticias/salvar" method="post">
+			<label>Titulo</label>
+			<input type="text" id="titulo" name="titulo" value="<%= noticia.titulo %>" placeholder="Titulo da Noticia">
+			<br>
+			<label>Resumo</label>
+			<input type="text" id="resumo" name="resumo"value="<%= noticia.resumo %>" placeholder="Resumo da Noticia">
+			<br>
+			<label>Autor</label>
+			<input type="text" id="autor" name="autor" value="<%= noticia.autor %>" placeholder="Autor da Noticia">
+			<br>
+			<label>Data dos fatos</label>
+			<input type="date" id="data_noticia" name="data_noticia" value="<%= noticia.data_noticia %>" placeholder="Data da Noticia">
+			<br>
+			<textarea id="noticia" name="noticia" ><%= noticia.noticia %></textarea>
+			<br>
+			<input type="submit" value="Adicionar">
+		</form>
+	</body>
+</html>
