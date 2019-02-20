@@ -6,15 +6,18 @@
 		<title>Portal de notícias</title>
 		
 		<!-- JQuery -->
+		<!-- essa esta configurada como passa padrão estática, por isso não precisa de todos os outros caminhos -->
 		<script src="js/jquery-2.2.1.js"></script>
 
 		<!-- bootstrap - link cdn -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 	
 		<!-- incluindo css -->
+		<!-- essa esta configurada como passa padrão estática, por isso não precisa de todos os outros caminhos -->
 		<link href="css/style.css" rel="stylesheet">
 
 		<!-- favicon -->
+		<!-- essa esta configurada como passa padrão estática, por isso não precisa de todos os outros caminhos -->
 		<link rel="shortcut icon" href="images/favicon.ico" />
 	</head>
 
@@ -43,22 +46,27 @@
 
 
 	    <div class="container">
+	    	<!-- a view recebe via json a variavel "validacao". se tiver erros essa validacao vem com variaveis dentro e assim, colocamos os erros na view -->
 			<% if(validacao.length > 0){ %>
 			<div class="row">
 				<div class="col-md-12">
 					<div class="alert alert-danger">
 						<strong>Atenção!</strong>
 						<ul>
+							<!-- percorrendo os erros -->
 							<% for(var i = 0; i < validacao.length; i++){ %>
+							<!-- colocando na tela -->
 							<li><%= validacao[i].msg %></li>
 							<% } %>
 						</ul>
 					</div>
 				</div>
 			</div>
+			<!-- fechando laço de repetição do for -->
 			<% } %>
 	    	<div class="row">
 	    		<div class="col-md-12">
+	    			<!-- o form tem metodo post de action que é escutada no controller, todos inputs precisam ter "names" para serem recuperados mais fácilmente no controller/model -->
 	    			<form action="/noticias/salvar" method="post">
 						<div class="form-group">
 							<label for="titulo">Título:</label>
