@@ -1,19 +1,22 @@
 {
   "name": "portal_noticias",
   "version": "1.0.0",
-  "description": "SIte de noticias",
+  "description": "Site de noticias",
   "main": "noticias.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Eduardo",
+  "author": "Jorge",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.18.3",
-    "consign": "^0.1.6",
-    "ejs": "^2.6.1",
+    "consign": "^0.1.2",
+    "ejs": "^2.5.1",
     "express": "^4.16.4",
-    "express-validator": "^5.3.1",
+    "express-validator": "^2.20.8",
     "mysql": "^2.16.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.10"
   }
 }

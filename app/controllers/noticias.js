@@ -1,21 +1,19 @@
-module.exports.noticias = function(app, req, res){
-//executando a função que o db connection está retornando
-var connection = app.config.dbConnection();
-var noticiasModel =  new app.app.models.NoticiasDAO(connection);
+module.exports.noticias = function(application, req, res){
+	var connection = application.config.dbConnection();
+	var noticiasModel = new application.app.models.NoticiasDAO(connection);
 
-noticiasModel.getNoticias(function(error, result){
-	 		//passando tudo pra view
-	 		res.render("noticias/noticias", {noticias : result});
-	 	});
+	noticiasModel.getNoticias(function(error, result){
+		res.render("noticias/noticias", {noticias : result});
+	});	
 }
 
-module.exports.noticia = function(app, req, res){
-	//executando a função que o db connection está retornando
-		var connection = app.config.dbConnection();
-		var noticiasModel = new app.app.models.NoticiasDAO(connection);
+module.exports.noticia = function(application, req, res){
+	var connection = application.config.dbConnection();
+	var noticiasModel = new application.app.models.NoticiasDAO(connection);
 
-	 	noticiasModel.getNoticia(function(error, result){
-	 		//passando tudo pra view
-	 		res.render("noticias/noticia", {noticia : result});
-	 	})
+	var id_noticia = req.query;
+
+	noticiasModel.getNoticia(id_noticia, function(error, result){
+		res.render("noticias/noticia", {noticia : result});
+	});	
 }

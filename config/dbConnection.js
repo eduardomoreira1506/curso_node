@@ -9,6 +9,6 @@ var connMySQL = function(){
 	});
 }
 
-module.exports = function(){
-	return connMySQL;	
+module.exports = function () {
+	return connMySQL;
 }
